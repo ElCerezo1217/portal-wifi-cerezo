@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bienvenido a El Cerezo WiFi</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #ffffff;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+    header {
+      background-color: #c62828;
+      padding: 20px;
+    }
+    header img {
+      max-width: 150px;
+    }
+    h1 {
+      color: #333;
+      margin-top: 20px;
+    }
+    form {
+      margin: 20px auto;
+      max-width: 400px;
+      padding: 20px;
+      background: #f4f4f4;
+      border-radius: 10px;
+    }
+    input, button {
+      width: 90%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    button {
+      background-color: #c62828;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #a41414;
+    }
+    .hidden {
+      display: none;
+    }
+    .links {
+      margin-top: 30px;
+    }
+    .links a {
+      display: block;
+      margin: 10px;
+      padding: 10px;
+      background-color: #c62828;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+    footer {
+      margin-top: 30px;
+      font-size: 12px;
+      color: #aaa;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <!-- Aquí puedes subir tu logo o usar un enlace a tu imagen -->
+    <img src="https://via.placeholder.com/150?text=El+Cerezo" alt="Logo El Cerezo">
+  </header>
+
+  <h1>Bienvenido a El Cerezo Servicios y Tecnología</h1>
+
+  <form id="registroForm">
+    <input type="text" id="nombre" placeholder="Nombre completo" required>
+    <input type="email" id="email" placeholder="Correo electrónico" required>
+    <input type="tel" id="telefono" placeholder="Número de teléfono" required>
+    <label>
+      <input type="checkbox" id="terminos" required>
+      Acepto los Términos y Condiciones
+    </label>
+    <button type="submit">Registrarse y Navegar</button>
+  </form>
+
+  <div id="accesoExitoso" class="hidden">
+    <h2>¡Registro exitoso!</h2>
+    <p>Ahora puedes acceder a nuestros servicios:</p>
+    <div class="links">
+      <a href="https://forms.gle/formulario1" target="_blank">Solicitar Servicio</a>
+      <a href="https://forms.gle/formulario2" target="_blank">Registrar Garantía</a>
+      <a href="https://forms.gle/formulario3" target="_blank">Encuesta de Satisfacción</a>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 El Cerezo Servicios y Tecnología. Todos los derechos reservados.
+  </footer>
+
+  <script>
+    const form = document.getElementById('registroForm');
+    const accesoExitoso = document.getElementById('accesoExitoso');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      form.classList.add('hidden');
+      accesoExitoso.classList.remove('hidden');
+    });
+  </script>
+
+</body>
+</html>
