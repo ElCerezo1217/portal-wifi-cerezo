@@ -85,7 +85,7 @@
       <input type="checkbox" id="terminos" required>
       Acepto los Términos y Condiciones
     </label>
-    <button type="submit">Registrarse y Navegar</button>
+    <button type="submit" onclick="redirigir()">Registrarse y Navegar</button>
   </form>
 
   <div id="accesoExitoso" class="hidden">
@@ -112,6 +112,11 @@
       accesoExitoso.classList.remove('hidden');
     });
   </script>
-
+<script>
+  function redirigir() {
+    // Opcional: aquí puedes validar que se haya llenado el formulario
+    window.location.href = "http://192.168.50.1/login?username=cliente&password=1234";
+  }
+</script>
 </body>
 </html>
