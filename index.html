@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Bienvenido a El Cerezo WiFi</title>
   <style>
     body {
@@ -24,13 +24,16 @@
       margin-top: 20px;
     }
     form {
-      margin: 20px auto;
+      background: #f5f5f5;
+      padding: 30px;
       max-width: 400px;
-      padding: 20px;
-      background: #f4f4f4;
+      margin: 20px auto;
       border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     }
-    input, button {
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"] {
       width: 90%;
       padding: 10px;
       margin: 10px 0;
@@ -40,90 +43,60 @@
     button {
       background-color: #c62828;
       color: white;
-      font-weight: bold;
+      border: none;
+      padding: 12px 20px;
+      font-size: 16px;
+      border-radius: 5px;
       cursor: pointer;
     }
-    button:hover {
-      background-color: #a41414;
-    }
-    .hidden {
-      display: none;
-    }
-    .links {
-      margin-top: 30px;
-    }
-    .links a {
-      display: block;
-      margin: 10px;
-      padding: 10px;
-      background-color: #c62828;
-      color: white;
-      text-decoration: none;
-      border-radius: 5px;
+    label {
+      font-size: 14px;
+      color: #555;
     }
     footer {
-      margin-top: 30px;
       font-size: 12px;
       color: #aaa;
+      margin-top: 30px;
     }
   </style>
 </head>
 <body>
 
   <header>
-    <!-- Aquí puedes subir tu logo o usar un enlace a tu imagen -->
-    <img src="El%20cerezo.png" alt="Logo El Cerezo">
+    <img src="El cerezo.png" alt="Logo El Cerezo">
   </header>
 
   <h1>Bienvenido a El Cerezo Servicios y Tecnología</h1>
 
   <form id="registroForm">
-    <input type="text" id="nombre" placeholder="Nombre completo" required>
-    <input type="email" id="email" placeholder="Correo electrónico" required>
-    <input type="tel" id="telefono" placeholder="Número de teléfono" required>
-    <label>
-      <input type="checkbox" id="terminos" required>
-      Acepto los Términos y Condiciones
-    </label>
+    <input type="text" placeholder="Nombre completo" required>
+    <input type="email" placeholder="Correo electrónico" required>
+    <input type="tel" placeholder="Número de teléfono" required>
+
+    <br><br>
+    <input type="checkbox" id="terminos" required>
+    <label for="terminos">Acepto los Términos y Condiciones</label>
+    <br><br>
+
     <button type="button" onclick="redirigir()">Registrarse y Navegar</button>
   </form>
 
-  <div id="accesoExitoso" class="hidden">
-    <h2>¡Registro exitoso!</h2>
-    <p>Ahora puedes acceder a nuestros servicios:</p>
-    <div class="links">
-      <a href="https://forms.gle/formulario1" target="_blank">Solicitar Servicio</a>
-      <a href="https://forms.gle/formulario2" target="_blank">Registrar Garantía</a>
-      <a href="https://forms.gle/formulario3" target="_blank">Encuesta de Satisfacción</a>
-    </div>
-  </div>
-
   <footer>
-    &copy; 2025 El Cerezo Servicios y Tecnología. Todos los derechos reservados.
+    © 2025 El Cerezo Servicios y Tecnología. Todos los derechos reservados.
   </footer>
 
   <script>
-    const form = document.getElementById('registroForm');
-    const accesoExitoso = document.getElementById('accesoExitoso');
+    function redirigir() {
+      const terminos = document.getElementById("terminos");
+      if (!terminos.checked) {
+        alert("Debes aceptar los Términos y Condiciones.");
+        return;
+      }
 
-    form.addEventListener('submit', function(e) {
-      e.preventDefault();
-      form.classList.add('hidden');
-      accesoExitoso.classList.remove('hidden');
-    });
-  </script>
-<script>
-  function redirigir() {
-    // Validar si se aceptaron los términos
-    const check = document.getElementById("terminos");
-    if (!check.checked) {
-      alert("Debes aceptar los Términos y Condiciones.");
-      return;
+      // Redirige al login automático de Mikrotik
+      window.location.href = "http://192.168.50.1/login?username=cliente&password=1234";
     }
+  </script>
 
-    // Aquí va la URL de login automático del Mikrotik
-    window.location.href = "http://192.168.50.1/login?username=cliente&password=1234";
-  }
-</script>
 </body>
 </html>
