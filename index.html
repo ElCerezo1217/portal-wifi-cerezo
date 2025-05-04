@@ -85,18 +85,19 @@
     © 2025 El Cerezo Servicios y Tecnología. Todos los derechos reservados.
   </footer>
 
-  <script>
-    function redirigir() {
-      const terminos = document.getElementById("terminos");
-      if (!terminos.checked) {
-        alert("Debes aceptar los Términos y Condiciones.");
-        return;
-      }
-
-      // Redirige al login automático de Mikrotik
-      window.location.href = "http://192.168.50.1/login?username=cliente&password=1234";
+<script>
+  function redirigir() {
+    const terminos = document.getElementById("terminos");
+    if (!terminos.checked) {
+      alert("Debes aceptar los Términos y Condiciones.");
+      return;
     }
-  </script>
+
+    // Redirección al Mikrotik con destino forzado
+    window.location.href = "http://192.168.50.1/login?username=cliente&password=1234&dst=http://neverssl.com";
+  }
+</script>
+
 
 </body>
 </html>
