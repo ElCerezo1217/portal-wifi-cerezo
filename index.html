@@ -85,7 +85,7 @@
       <input type="checkbox" id="terminos" required>
       Acepto los Términos y Condiciones
     </label>
-    <button type="submit" onclick="redirigir()">Registrarse y Navegar</button>
+    <button type="button" onclick="redirigir()">Registrarse y Navegar</button>
   </form>
 
   <div id="accesoExitoso" class="hidden">
@@ -114,7 +114,14 @@
   </script>
 <script>
   function redirigir() {
-    // Opcional: aquí puedes validar que se haya llenado el formulario
+    // Validar si se aceptaron los términos
+    const check = document.getElementById("terminos");
+    if (!check.checked) {
+      alert("Debes aceptar los Términos y Condiciones.");
+      return;
+    }
+
+    // Aquí va la URL de login automático del Mikrotik
     window.location.href = "http://192.168.50.1/login?username=cliente&password=1234";
   }
 </script>
